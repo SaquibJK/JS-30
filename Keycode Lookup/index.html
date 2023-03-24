@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Key Code Event Tool</title>
+
+    <!-- StyleSheets -->
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <nav class="navbar flex">
+
+        <div class="left-container">
+            <div class="logo">
+                <h2>Toptal<sub>&#174;</sub></h2>
+            </div>
+
+
+            <div class="UandK flex">
+                <a href="#" class="utilities">
+                    <div>Utilities</div>
+                </a>
+
+                <i class="fa-thin fa-greater-than icon"></i>
+
+                <div class="text">
+                    Keycodes
+                </div>
+
+            </div>
+        </div>
+
+        <div class="btn flex">
+            <button>
+                Table
+            </button>
+        </div>
+
+    </nav>
+
+    <div class="container">
+        <h3 class="upper-text">JavaScript Key Code</h3>
+
+        <div class="first-container">
+            <p class="keycode">
+                Press any key to get the JavaScript event keycode info
+            </p>
+        </div>
+
+        <div class="second-container hide">
+            <div class="keycode-container">
+                <div class="keycode_">
+
+                </div>
+                <h4 class="desc">Key Code Information</h4>
+
+            </div>
+
+            <div class="cards">
+
+                <div class="card-1 card">
+
+                    <div class="heading">
+                        <h3>event.key</h3>
+                    </div>
+                    <div class="keyEventContent content">
+
+                    </div>
+                </div>
+
+                <div class="card-2 card">
+                    <div class="heading">
+                        <h3>event.code</h3>
+                    </div>
+                    <div class="keyEventCode content">
+
+                    </div>
+
+                </div>
+                
+                <div class="card-3 card">
+                    <div class="heading">
+                        <h3>event.which</h3>
+                    </div>
+
+                    <div class="keyEvent content">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</body>
+<script>
+
+    function toggle() {
+        const firstC = document.querySelector(".first-container")
+        const secondC = document.querySelector(".second-container")
+
+        firstC.classList.add("hide");
+        secondC.classList.remove("hide");
+    }
+
+    window.addEventListener("keydown", setKeyCodes)
+    function setKeyCodes(e) {
+
+        toggle();
+        let key = e.key;
+        let code = e.code;
+        let keyCode = e.keyCode;
+
+        if (key === " ") {
+            key = "(Blank_space)"
+        }
+        const upperText = document.querySelector(".upper-text");
+        const keycode = document.querySelector(".keycode_")
+        const eventKeyContent = document.querySelector(".keyEventContent");
+        const eventKeyCode = document.querySelector(".keyEventCode");
+        const eventKey = document.querySelector(".keyEvent")
+
+        keycode.textContent = keyCode;
+        upperText.innerText = `JavaScript Key Code ${e.keyCode}`
+        eventKeyContent.innerText = key;
+        eventKeyCode.innerText = code;
+        eventKey.textContent = keyCode;
+    }
+
+
+</script>
+
+</html>
