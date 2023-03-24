@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="/mystyle.css">
+</head>
+
+<body>
+
+    <div class="clock">
+        <div class="clock-face">
+            <div class="second-hand hand">
+            </div>
+            <div class="minute-hand hand">
+            </div>
+            <div class="hour-hand hand">
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+
+    const secondH = document.querySelector('.second-hand')
+    const minuteH = document.querySelector('.minute-hand')
+    const hourH = document.querySelector('.hour-hand')
+
+
+    function getTime() {
+        const now = new Date();
+        const s = now.getSeconds();
+        const m = now.getMinutes();
+        const h = now.getHours();
+
+        const secDegree = (((s / 60) * 360) + 90);
+        const minDegree = (((m / 60) * 360) + 90);
+        const hourDegree = (((h / 12) * 360) + 90);
+
+        if(s === 0){
+            secondH.classList.add('fast');
+        }
+        if(s === 1){
+            secondH.classList.remove("fast");
+        }
+
+        secondH.style.transform = `rotate(${secDegree}deg)`
+        minuteH.style.transform = `rotate(${minDegree}deg)`
+        hourH.style.transform = `rotate(${hourDegree}deg)`
+
+        console.log(`secDegree: ${secDegree} minDegree: ${minDegree} hourDegree: ${hourDegree}`);
+    }
+
+    setInterval(getTime, 1000);
+
+</script>
+
+</html>

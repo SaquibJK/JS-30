@@ -1,0 +1,83 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "helvetica neue";
+  text-align: center;
+  font-size: 10px;
+  height: 100vh;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-face {
+  width: 12rem;
+  height: 12rem;
+  border: 11px solid white;
+  margin: 200px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
+    inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px); /* account for the height of the clock hands */
+}
+
+.hand {
+  width: 50%;
+  background-color: black;
+  height: 4px;
+  position: absolute;
+  top: 50%;
+  border-radius: 7px;
+
+  transform-origin: 100%;
+  /*  CSS property that specifies the point in an element that is used as the origin for transformations. When an element is transformed using CSS transform property, it pivots around this point*/
+  transform: rotate(90deg);
+  transition: all 0.05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.second-hand{
+  width: 42%;
+  margin-left: 8%;
+  background-color: #ccc ;
+}
+
+.minute-hand{
+  width: 38%;
+  margin-left: 12%;
+  background-color:#88dfc2;
+}
+
+.hour-hand{
+  width: 30%;
+  margin-left: 20%;
+}
+
+.fast{
+  transition: all 0s;
+}
+
+@media (max-width: 768px) {
+  .clock-face {
+    width: 8rem;
+    height: 8rem;
+    border-width: 6px;
+    margin: 100px;
+  }
+
+  .hand {
+    height: 3px;
+    border-radius: 9px;
+  }
+}
