@@ -6,8 +6,6 @@ function toggle() {
   secondC.classList.remove("hide");
 }
 
-window.addEventListener("keydown", setKeyCodes);
-
 function setKeyCodes(e) {
   toggle();
   let { keyCode, key, code } = e;
@@ -36,3 +34,5 @@ function setKeyCodes(e) {
   eventKeyCode.textContent = code;
   eventKey.textContent = keyCode;
 }
+
+window.addEventListener("keydown", setKeyCodes);
