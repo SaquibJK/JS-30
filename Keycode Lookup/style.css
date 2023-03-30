@@ -128,10 +128,12 @@ body {
 }
 
 .keycode_ {
-  font-size: 180px;
+  font-size: 12rem;
   text-align: center;
   margin: 0;
   padding: 0;
+  position: relative;
+  top: -40px;
 }
 
 .desc {
